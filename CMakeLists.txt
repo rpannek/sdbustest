@@ -12,19 +12,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11")
 include(GNUInstallDirs)
 
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(LIBSYSTEMD REQUIRED libsystemd)
-  
-set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-include_directories(
-    ${SRC_DIR}
-    ${LIBSYSTEMD_INCLUDE_DIRS}
-)
- 
-add_executable(${PROJECT_NAME}
-    ${SRC_DIR}/busclient.cpp
-)
-
-target_link_libraries(${PROJECT_NAME} ${LIBSYSTEMD_LDFLAGS})
- 
-install(TARGETS ${TARGET_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+add_subdirectory(sdbus)
