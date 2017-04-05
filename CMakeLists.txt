@@ -14,3 +14,4 @@ include(GNUInstallDirs)
 find_package(PkgConfig REQUIRED)
 
 add_subdirectory(sdbus)
+add_subdirectory(gdbus)
